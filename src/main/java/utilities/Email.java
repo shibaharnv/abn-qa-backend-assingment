@@ -23,6 +23,14 @@ public class Email{
     public static String Reporturl;
 
 
+    /**
+
+     * This method is used to read the maven logs text file to capture the cucumber report url
+     * @param       *None
+     * @return      None
+     */
+
+
     static void readTextfile() throws IOException {
 
         FileReader fr = new FileReader(System.getProperty("user.dir") + "/mavenlogs.txt");
@@ -45,11 +53,20 @@ public class Email{
 
     }
 
-    public static void emailTrigger(String recipient) throws IOException  {
 
 
-        final String fromEmail = "simpuudemy@gmail.com"; //requires valid gmail id
-        final String password = "akdyrvmfbzxcxncv"; // correct password for gmail id
+    /**
+     * This method is to trigger the email with report link
+     * @param  recipient  email address of the recipient
+     * @return      None
+     */
+
+
+    public static void emailTrigger(String recipient) {
+
+
+        final String fromEmail = "shibaharn@gmail.com"; //requires valid gmail id
+        final String password = "ovsjwbxhnjduwbou"; // correct password for gmail id
 
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com"); //SMTP Host
@@ -112,7 +129,7 @@ public class Email{
             System.out.println("Message is ready");
             Transport.send(message);
 
-            System.out.println("EMail Sent Successfully!!");
+            System.out.println("Email Sent Successfully!!");
         }
         catch (Exception e) {
             e.printStackTrace();
