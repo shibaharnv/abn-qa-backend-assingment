@@ -28,12 +28,26 @@ public class StepDefinition extends Utils {
     static String issueIid;
 
 
+
+    /**
+     * This method is to set up the request specifications required for gitlab issues api
+     * @param  *none
+     * @return  none
+     */
     @Given("Setting up the request specification for gitlab issues api")
     public void setting_up_the_request_specification_for_gitlab_issues_api() throws IOException {
 
         reqObj = given().spec(requestSpecificationMethod());
     }
 
+
+
+    /**
+     * This method is to create a new issue using gitlab issues api
+     * @param  issueTitle
+     * @param  description
+     * @return  none
+     */
     @When("User creates new issue with {string} and {string}")
     public void user_creates_new_issue_with_and(String issueTitle, String description) {
 
@@ -44,6 +58,11 @@ public class StepDefinition extends Utils {
 
 
 
+    /**
+     * This method validates the output response and verify the status code
+     * @param  statusCode
+     * @return  none
+     */
     @Then("Validate the {int} from output response")
     public void validate_the_from_output_response(Integer statusCode) {
 
@@ -62,6 +81,13 @@ public class StepDefinition extends Utils {
     }
 
 
+
+
+    /**
+     * This method is to extract the status iid from output json response
+     * @param  *none
+     * @return  none
+     */
     @Then("Extract the response and store the issue_id")
     public void extract_the_response_and_store_the_issue_id() {
 
@@ -69,6 +95,13 @@ public class StepDefinition extends Utils {
         System.out.println("iid " + issueIid);
     }
 
+
+    /**
+     * This method is used to extract the reponse and assert the title and description
+     * @param  expectedTitle
+     * @param  expectedDescription
+     * @return  none
+     */
     @Then("Verify the {string} and {string} in output response")
     public void verify_the_and_in_output_response(String expectedTitle, String expectedDescription) {
 
@@ -80,6 +113,14 @@ public class StepDefinition extends Utils {
 
     }
 
+
+    /**
+     * This method is used to update the existing gitlab issue api
+     * @param  title
+     * @param  description
+     * @return  none
+     */
+
     @When("User update the existing issue {string} and {string}")
     public void user_update_the_existing_issue_and(String title, String description) {
 
@@ -89,6 +130,13 @@ public class StepDefinition extends Utils {
     }
 
 
+    /**
+     * This method is used to delete the gitlab issue api with issue iid
+     * @param  *none
+     * @return  none
+     */
+
+
     @When("User deletes the existing gitlab issue")
     public void user_deletes_the_existing_gitlab_issue() {
         response = reqObj
@@ -96,25 +144,13 @@ public class StepDefinition extends Utils {
     }
 
 
-    @When("User moves an issue to {string}")
-    public void user_moves_an_issue_to(String newProjectId) {
-        response = reqObj.contentType("multipart/form-data")
-                .multiPart("to_project_id", newProjectId)
-                .when().post(("/"+issueIid+"/move"));
-
-    }
-
-
-
-    @When("User clone the issue with {string} and {string}")
-    public void user_clone_the_issue_with_and(String notes, String newProjectId) {
-        response = reqObj
-                .queryParam("with_notes",notes)
-                .queryParam("to_project_id",newProjectId)
-                .when().post(("/"+issueIid+"/clone"));
-
-
-    }
+    /**
+     * This method is subscribe ,unsubsribe,move,clone the issues in gitlab
+     * @param  resource
+     * @param  newProjectId
+     * @param  notes
+     * @return  none
+     */
 
 
     @When("User {string} an issue in Gitlab with {string} and {string}")

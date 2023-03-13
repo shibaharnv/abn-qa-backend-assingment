@@ -11,7 +11,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
@@ -19,6 +18,17 @@ import java.util.Random;
 public class Utils {
 
     public static RequestSpecification req;
+
+
+    /**
+     * Returns the  request specification object that contains base url and oauthtoken
+     * and enables login functionality
+
+     * This method is used to capture the endpoint url and oauth token from global.properties
+     * also using request logging filter logs the details in a file
+     * @param  *none
+     * @return      request specification object
+     */
 
     public RequestSpecification requestSpecificationMethod() throws IOException {
 
@@ -38,6 +48,17 @@ public class Utils {
     }
 
 
+
+    /**
+     * Returns the  property key value from the global properties file
+     *
+
+     * This method is used to capture the endpoint url and oauth token from global.properties
+     * also using request logging filter logs the details in a file
+     * @param  key
+     * @return  value
+     */
+
     public static String getGlobalValue(String key) throws IOException {
 
         Properties prop = new Properties();
@@ -51,6 +72,14 @@ public class Utils {
     }
 
 
+
+    /**
+     * Returns the json key value by taking the response and key as input
+     * This method is used to find out the json key value
+     * @param  response
+     * @param  key
+     * @return  json key value
+     */
     public String getJsonPath(Response response,String key)
     {
         String resp=response.asString();
@@ -59,6 +88,13 @@ public class Utils {
     }
 
 
+
+    /**
+     * Returns the  generated random string
+     * This method is used to generate the random string
+     * @param  none
+     * @return  randomString
+     */
     public static String randomStringGeneration() {
         Random robj = new Random();
         String alphabets = "abcdefghijklmnopqrstuvwxyz";

@@ -19,7 +19,6 @@ import javax.mail.internet.MimeMultipart;
 public class Email{
 
 
-
     public static String Reporturl;
 
 
@@ -33,7 +32,8 @@ public class Email{
 
     static void readTextfile() throws IOException {
 
-        FileReader fr = new FileReader(System.getProperty("user.dir") + "/mavenlogs.txt");
+
+        FileReader fr = new FileReader(System.getProperty("user.dir") + "/src/test/java/logs/logs.txt");
         System.out.println(System.getProperty("user.dir"));
         BufferedReader br = new BufferedReader(fr);
         String str;
