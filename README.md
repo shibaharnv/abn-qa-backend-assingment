@@ -146,7 +146,7 @@ All the testcases present in the framework can be executed inside the docker con
 
 ## Automatic email Generation
 
-Once the execution is done you must be receiving an email with test results link
+Once the execution is done you must be receiving an email with test results link.please refer below screenshot
 
 <img width="736" alt="Screenshot 2023-03-12 at 18 38 56" src="https://user-images.githubusercontent.com/65211677/224562304-e1de99d3-6e81-4d1c-8acb-e7805cb100bd.png">
 
