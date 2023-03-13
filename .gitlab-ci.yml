@@ -1,0 +1,12 @@
+image: maven:3.8.1-jdk-11-openj9
+
+build:
+  stage: build
+  script:
+    - mvn clean install
+
+test:
+  stage: test
+  script:
+
+    - mvn -Dcucumber.filter.tags="@Crud or @EdgeCase" test verify --log-file ./src/test/java/logs/logs.txt -DRecipientList=$Email
