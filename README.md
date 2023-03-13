@@ -213,13 +213,13 @@ Detailed report can be found in /abn-qa-backend-assingment/target/cucumber-html-
 
 ##  Gitlab integration for CI CT (.gitlab-ci.yml)
 
-- Gitlab source code (https://gitlab.com/mynewgroupshibahar/gitlabissueapiframeworkabnamro) 
+- Gitlab source code https://gitlab.com/mynewgroupshibahar/abn-qa-backend-assingment/
 
 ## To run gitlab pipeline to execute testcases 
 
 - Navigate to the below link and run the pipeline by giving your email id - Variable name should be "Email" and value should be "your mail id"
 
-- https://gitlab.com/mynewgroupshibahar/gitlabissueapiframeworkabnamro/-/pipelines/new
+- https://gitlab.com/mynewgroupshibahar/abn-qa-backend-assingment/-/pipelines/new
 
 <img width="1592" alt="Screenshot 2023-03-12 at 18 45 11" src="https://user-images.githubusercontent.com/65211677/224562645-bf31dad1-62be-4911-a3ad-ad6b84af2fb2.png">
 
